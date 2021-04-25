@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>SSISHomework</Name>
-    <LastWriteTime>2021-04-22T09:41:32.5233764Z</LastWriteTime>
+    <LastWriteTime>2021-04-25T11:02:37.2125889Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -23,7 +23,22 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>part53.dtsx</Name>
-      <LastWriteTime>2021-04-22T09:41:32.5093745Z</LastWriteTime>
+      <LastWriteTime>2021-04-22T09:42:20.0642141Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>part54.dtsx</Name>
+      <LastWriteTime>2021-04-22T20:56:49.3708063Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>part55.dtsx</Name>
+      <LastWriteTime>2021-04-25T10:41:05.4947277Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>part56.dtsx</Name>
+      <LastWriteTime>2021-04-25T11:21:42.1408708Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
