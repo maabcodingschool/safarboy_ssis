@@ -11,8 +11,8 @@
   DTS:LocaleID="1049"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{EE529490-EEA4-4282-A145-E277775DF9FF}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{3B832E44-C36A-46BA-8159-FD4C0187D14D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1183,7 +1183,7 @@ where [refTable].[customerId] = ?</property>
         <NodeLayout
           Size="143,42"
           Id="Package\DFT_Lookup"
-          TopLeft="171,150" />
+          TopLeft="127,126" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
