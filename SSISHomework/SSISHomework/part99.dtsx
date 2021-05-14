@@ -1,0 +1,214 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/6/2021 7:58:04 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-573A3AR"
+  DTS:CreatorName="DESKTOP-573A3AR\ThinkBook"
+  DTS:DTSID="{F9A122F5-0FDB-4B8F-9D0F-2B947BC47C03}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.157"
+  DTS:LocaleID="1049"
+  DTS:ObjectName="part99"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{A6472AE0-E047-46DA-BF51-D21D79EA22D5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FTP Connection Manager]"
+      DTS:CreationName="FTP"
+      DTS:DTSID="{4701CDF4-0451-4136-A072-AA4A9B1BFB4D}"
+      DTS:ObjectName="FTP Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="192.168.1.17:21">
+          <DTS:FtpConnection
+            DTS:ServerName="192.168.1.17"
+            DTS:ServerUserName="Safarboy">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAO9WbEy7b40+aZjp9WJcTWwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAO9aAQE0CICNwoCya3ntCwZuPujlaEVoe1jXhPSpp0twAAAAAOgAAAAAIAACAAAAC2ANYwTOvCtH2m7n0n/TPzLG6/nBMwbvT0m6I6zA4S1RAAAAAkn4WVvzEMNJvUOV9Kq3MLQAAAAIWuhUlbrarvioitYUcbC6O7kY7rwCEqRhpSM4IpSO3jNZUvx0jkIfE56ajHGRbxPgU/XG7TvhwlxXtRBKdTW/s</DTS:Property>
+          </DTS:FtpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FTP Connection Manager 1]"
+      DTS:CreationName="FTP"
+      DTS:DTSID="{D48ADD85-6D1E-4F3C-A6AC-6075884F1C01}"
+      DTS:ObjectName="FTP Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="192.168.1.17:21">
+          <DTS:FtpConnection
+            DTS:ServerName="192.168.1.17"
+            DTS:ServerUserName="anonymous">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAO9WbEy7b40+aZjp9WJcTWwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACD6Jg3qDVAjyM6q2F1b3QwPR7Edc5BW0UpEdz/T4E8zwAAAAAOgAAAAAIAACAAAAC3vO51542puFK5LwQdOKvN6+TmoPxeV9zTIVc6jIJaQRAAAAD4Ugp8Nl7OXwkl4MTgEwozQAAAAK/VpMMyCvpUAoTZFhhbuSf3ApsLjk8kMB68360xtYciw14Cx+U3HjW2FGbIbqoJnGbRfo9WQrPX/DkxVg7/f88</DTS:Property>
+          </DTS:FtpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FTP Connection Manager 2]"
+      DTS:CreationName="FTP"
+      DTS:DTSID="{7D378AE3-E889-4E9D-826F-C34055ABA1B4}"
+      DTS:ObjectName="FTP Connection Manager 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="192.168.1.17:21">
+          <DTS:FtpConnection
+            DTS:ServerName="192.168.1.17"
+            DTS:ServerUserName="Safarboy">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAO9WbEy7b40+aZjp9WJcTWwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABnoxTSBT8yy/7jQ4L+zV6P7W7jjl+1RD7qXNahBqFvegAAAAAOgAAAAAIAACAAAAC7ZhG76nyCRdqXOiG1O6s5KaOFVTJuSoduCDHVTMQjIxAAAAAr3iB1wRe8PVzPXIS56WzIQAAAAHrASpQZnfk0++CuhYhVQ89hDYtLU5HHb9w6hoQLxE2zuGpMm3P3wLCp5A0u8gsI1LcRCZBnoxyJv57hxh4JW5Y</DTS:Property>
+          </DTS:FtpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{077C7481-619A-4890-82F2-CCD49BFFF3F1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8">cusromer (2).txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BE227615-A908-49E5-A592-3C80D023B19E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2052AACD-96A5-451D-84A5-77351A6C0670}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LocalFolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\ThinkBook\Desktop\InputFolder</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7CACDDAC-453F-476D-BF8B-0DE6A9BA88CE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RemoteFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">/Sales</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FTP Task"
+      DTS:CreationName="Microsoft.FtpTask"
+      DTS:Description="FTP Task"
+      DTS:DTSID="{B66DF20F-96BF-4F6D-BA66-974CA2E7E48D}"
+      DTS:ExecutableType="Microsoft.FtpTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FTP Task"
+      DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2019; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="RemotePath">@[User::RemoteFolder]+"/"+ @[User::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <FtpData
+          ConnectionName="{7D378AE3-E889-4E9D-826F-C34055ABA1B4}"
+          TaskOperationType="Receive"
+          TaskIsLocalPathVar="True"
+          TaskLocalPath="User::LocalFolderPath"
+          TaskRemotePath="/Sales/cusromer (2).txt"
+          TaskOverwriteDest="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Script Task"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Script Task"
+      DTS:DTSID="{EC894C85-9BBC-4319-A756-8AAE0FFC204E}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Script Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_1d37aa79f12f477aa117b7d2100bd1b0"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="VisualBasic" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{304A1B77-65F5-42EF-B3C6-A50E7C66895F}"
+      DTS:From="Package\Script Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\FTP Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="127,42"
+          Id="Package\FTP Task"
+          TopLeft="194.5,147.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Script Task"
+          TopLeft="196,80" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="260.5,122">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.5"
+              Start="0,0"
+              End="0,18">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
