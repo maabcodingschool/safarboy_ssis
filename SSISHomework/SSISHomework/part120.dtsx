@@ -1,0 +1,662 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/15/2021 2:39:00 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-573A3AR"
+  DTS:CreatorName="DESKTOP-573A3AR\ThinkBook"
+  DTS:DTSID="{CFC867EE-35F6-4A17-B19F-7471B4CAC9BB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.157"
+  DTS:LocaleID="1049"
+  DTS:ObjectName="part120"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{816B98C8-212E-4FBF-BC65-CB5F5DAE3724}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-573A3AR.ssis_homework]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5DC2EF18-2B94-4922-9FBD-1F70BD84EEE0}"
+      DTS:ObjectName="DESKTOP-573A3AR.ssis_homework">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-573A3AR;Initial Catalog=ssis_homework;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{3BA64B21-8606-4218-AB07-90C8C40A74AA}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::FileFullPath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1049"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1251"
+          DTS:ConnectionString="My File Full Path">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerId"
+              DTS:DTSID="{EB474E2B-9339-49E1-BA1E-2897AF795652}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerName"
+              DTS:DTSID="{B6FAC68A-6A07-46B0-B390-6A2E0B37F042}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2D525CEC-2D3B-42CF-861F-5B9BAFCA17D0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\ThinkBook\Desktop\ArchiveFolder</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E8C43546-2358-4FCF-99C7-558A5B6D42B5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileFullPath">
+      <DTS:VariableValue
+        DTS:DataType="8">My File Full Path</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C8D413E4-D9A2-4667-B366-33D0FE23CC00}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\ssis_homework</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{52BCB29B-D37E-46B1-B565-BC4F7A3D335E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="FolderPathObj">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F59652A4-BA33-4F1A-B3EC-D7B3EBFD848C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5DC2EF18-2B94-4922-9FBD-1F70BD84EEE0}"
+          SQLTask:SqlStatementSource="Select FolderOath from [dbo].[FilesToLoad]&#xA;where PackageName = ?"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::FolderPathObj" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container_Get FolderPath from Object"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{CF515AC1-5DF4-4C4B-9944-B31D7B1D2EC9}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container_Get FolderPath from Object">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{6A392BD2-DF5D-4627-BBCE-ED0D6E6B9AF6}"
+        DTS:ObjectName="{6A392BD2-DF5D-4627-BBCE-ED0D6E6B9AF6}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::FolderPathObj" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{9235771D-C1AF-4AB0-8C30-31E5CD46FC8C}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Multiple Files">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{4F402D66-4EC9-4CEF-96FD-341348C2433D}"
+            DTS:ObjectName="{4F402D66-4EC9-4CEF-96FD-341348C2433D}">
+            <DTS:PropertyExpression
+              DTS:Name="Directory">@[User::FolderPath]</DTS:PropertyExpression>
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="C:\ssis_homework" />
+                <FEFEProperty
+                  FileSpec="*.txt" />
+                <FEFEProperty
+                  FileNameRetrievalType="0" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{F2C9424D-1830-434A-96BD-9CF1DF6253E3}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Data Flow Task"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source"
+                      componentClassID="Microsoft.FlatFileSource"
+                      contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Flat File Source"
+                      localeId="1049"
+                      name="Flat File Source"
+                      usesDispositions="true"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Specifies whether zero-length columns are treated as null."
+                          name="RetainNulls">true</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                          name="FileNameColumnName"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
+                          connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                          connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                          name="FlatFileConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]"
+                          name="Flat File Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerId]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerId]"
+                              lineageId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerId]"
+                              name="CustomerId"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerName]"
+                              codePage="1251"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerName]"
+                              length="100"
+                              lineageId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerName]"
+                              name="CustomerName"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                                  name="FastParse">false</property>
+                                <property
+                                  dataType="System.Boolean"
+                                  description="Indicates whether the data is in binary format."
+                                  name="UseBinaryFormat">false</property>
+                              </properties>
+                            </outputColumn>
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerId]"
+                              dataType="i4"
+                              name="CustomerId" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerName]"
+                              codePage="1251"
+                              dataType="str"
+                              length="100"
+                              name="CustomerName" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output]"
+                          isErrorOut="true"
+                          name="Flat File Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              codePage="1251"
+                              dataType="text"
+                              description="Flat File Source Error Output Column"
+                              lineageId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                              name="Flat File Source Error Output Column" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE DB Destination"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[dbo].[customer]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1251</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[DESKTOP-573A3AR.ssis_homework]"
+                          connectionManagerRefId="Package.ConnectionManagers[DESKTOP-573A3AR.ssis_homework]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerId]"
+                              cachedDataType="i4"
+                              cachedName="CustomerId"
+                              externalMetadataColumnId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customerid]"
+                              lineageId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerId]" />
+                            <inputColumn
+                              refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerName]"
+                              cachedCodepage="1251"
+                              cachedDataType="str"
+                              cachedLength="100"
+                              cachedName="CustomerName"
+                              externalMetadataColumnId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]"
+                              lineageId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerName]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customerid]"
+                              dataType="i4"
+                              name="Customerid" />
+                            <externalMetadataColumn
+                              refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]"
+                              codePage="1251"
+                              dataType="str"
+                              length="100"
+                              name="CustomerName" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task.Paths[Flat File Source Output]"
+                      endId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      name="Flat File Source Output"
+                      startId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\File System Task"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="File System Task"
+              DTS:DTSID="{48473585-B248-450D-80A3-A4039709DBF5}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="File System Task"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOperationType="MoveFile"
+                  TaskOverwriteDestFile="True"
+                  TaskSourcePath="User::FileFullPath"
+                  TaskIsSourceVariable="True"
+                  TaskDestinationPath="User::ArchFolder"
+                  TaskIsDestinationVariable="True" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{8BBC35A1-7267-4555-AE8D-94B8AA065E54}"
+              DTS:From="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\File System Task" />
+          </DTS:PrecedenceConstraints>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{9FAE6637-CAA1-4622-A50F-ED26F3A4F889}"
+              DTS:ObjectName="{9FAE6637-CAA1-4622-A50F-ED26F3A4F889}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::FileFullPath" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{BC0BC41B-82EA-4679-A860-C47FA72BD0CD}"
+          DTS:ObjectName="{BC0BC41B-82EA-4679-A860-C47FA72BD0CD}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FolderPath" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{1CC0EA6E-E60C-42CF-9F19-0D8F8F22C76B}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container_Get FolderPath from Object" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="185.857142857143,18.5714285714286" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task"
+          TopLeft="31.5714285714286,17.8571428571429" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\File System Task"
+          TopLeft="23,89.4285714285714" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files.PrecedenceConstraints[Constraint]"
+          TopLeft="106.785714285714,59.8571428571429">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.5714285714285"
+              Start="0,0"
+              End="0,22.0714285714285">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.0714285714285" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="236,186"
+          Size="236,229"
+          Id="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files"
+          TopLeft="16.7142857142855,20.8571428571429" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="273,308"
+          Size="273,351"
+          Id="Package\Foreach Loop Container_Get FolderPath from Object"
+          TopLeft="134.714285714286,86.8571428571429" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="271.035714285714,60.5714285714286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.2857142857143"
+              Start="0,0"
+              End="0,18.7857142857143">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7857142857143" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\Flat File Source"
+          TopLeft="154,104" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination"
+          TopLeft="150,175" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="235.25,146">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container_Get FolderPath from Object\Load Multiple Files\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

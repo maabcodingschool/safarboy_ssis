@@ -1,0 +1,800 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/15/2021 3:25:14 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-573A3AR"
+  DTS:CreatorName="DESKTOP-573A3AR\ThinkBook"
+  DTS:DTSID="{E9CDCB8F-9A86-4330-A5C1-6E440728AE33}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.157"
+  DTS:LocaleID="1049"
+  DTS:ObjectName="part121"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{E4FDC427-1C0B-40D4-96C2-300E84D3B410}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-573A3AR.ssis_homework]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1EAF929B-F7A1-40E7-83CF-5CA0587D6717}"
+      DTS:ObjectName="DESKTOP-573A3AR.ssis_homework">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-573A3AR;Initial Catalog=ssis_homework;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{FA59DBF6-49FA-4E6E-A0D4-B88366E57F05}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::FileFullPath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1049"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1251"
+          DTS:ConnectionString="C:\Users\ThinkBook\Desktop\input folder\">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerId"
+              DTS:DTSID="{0BB5FCFD-2B84-41DD-AB26-94E10EA4FABC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerName"
+              DTS:DTSID="{C754B32F-4642-462A-B5A8-2B9E457F9083}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0C2FE582-3DB9-4DAA-8962-9E236867E1DC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\ThinkBook\Desktop\ArchiveFolder</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4D5E2EFC-639C-4D02-A4D8-DCEC9424AFE9}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::InputFolder]+&quot;\\&quot;+ @[User::FileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileFullPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\ThinkBook\Desktop\input folder\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DDBBF25C-20E6-4804-B510-15E57BBC07E3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{99C0A087-B865-4397-B15C-3FE546B9765E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="InputFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\ThinkBook\Desktop\input folder</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{43A00BE0-FBB6-4228-BACF-2588BEF2B2C8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RejectedFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\ThinkBook\Desktop\RejactedFolder</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container_Read Files From Input Folder"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{22D06505-77FB-449A-ADFC-98B5899819CC}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container_Read Files From Input Folder">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{17F26DE5-12EA-4FBF-82C7-830C82D0A91B}"
+        DTS:ObjectName="{17F26DE5-12EA-4FBF-82C7-830C82D0A91B}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::InputFolder]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\ThinkBook\Desktop\input folder" />
+            <FEFEProperty
+              FileSpec="*.txt" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{9CEF6824-762E-4805-8DC1-27BCE211AE8B}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="LoadStatusFlg">
+          <DTS:VariableValue
+            DTS:DataType="2">10000</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container_Read Files From Input Folder\ArchFile"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{C31738BC-6740-403A-883A-83CC31A46A41}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ArchFile"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::FileFullPath"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::ArchFolder"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{99AD7461-4B4A-4519-87BE-22FE90F61BAE}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Load New File"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1049"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerId]"
+                          lineageId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerId]"
+                          name="CustomerId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerName]"
+                          codePage="1251"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerName]"
+                          length="100"
+                          lineageId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerName]"
+                          name="CustomerName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerId]"
+                          dataType="i4"
+                          name="CustomerId" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerName]"
+                          codePage="1251"
+                          dataType="str"
+                          length="100"
+                          name="CustomerName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1251"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[customer]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1251</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-573A3AR.ssis_homework]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-573A3AR.ssis_homework]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerId]"
+                          cachedDataType="i4"
+                          cachedName="CustomerId"
+                          externalMetadataColumnId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customerid]"
+                          lineageId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerId]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerName]"
+                          cachedCodepage="1251"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="CustomerName"
+                          externalMetadataColumnId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]"
+                          lineageId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customerid]"
+                          dataType="i4"
+                          name="Customerid" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerName]"
+                          codePage="1251"
+                          dataType="str"
+                          length="100"
+                          name="CustomerName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container_Read Files From Input Folder\ESQL_Insert file Name"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B36EE56C-8375-431D-9D20-FABF8DDC3B35}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ESQL_Insert file Name"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{1EAF929B-F7A1-40E7-83CF-5CA0587D6717}"
+              SQLTask:SqlStatementSource="insert into [dbo].[FileLoadStatus] (FileName) Values  (?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::FileName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container_Read Files From Input Folder\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{D32E1993-BD1E-4FDB-9643-92E88BCD49F4}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"DECLARE @FileName VARCHAR(100)
+SET @FileName='"+ @[User::FileName] +"'
+IF EXISTS (SELECT 1
+           FROM   [dbo].[FileLoadStatus]
+           WHERE  filename =@FileName)
+  BEGIN
+      SELECT 1 AS FileExistsFlg
+  END
+ELSE
+BEGIN
+Select 0 AS FileExistsFlg
+END"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{1EAF929B-F7A1-40E7-83CF-5CA0587D6717}"
+              SQLTask:SqlStatementSource="DECLARE @FileName VARCHAR(100)&#xA;SET @FileName=''&#xA;IF EXISTS (SELECT 1&#xA;           FROM   [dbo].[FileLoadStatus]&#xA;           WHERE  filename =@FileName)&#xA;  BEGIN&#xA;      SELECT 1 AS FileExistsFlg&#xA;  END&#xA;ELSE&#xA;BEGIN&#xA;Select 0 AS FileExistsFlg&#xA;END"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::LoadStatusFlg" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container_Read Files From Input Folder\Rejected Folder"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{0C943114-3271-4AEE-BA2A-B5F463459922}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Rejected Folder"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::FileFullPath"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::RejectedFolder"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container_Read Files From Input Folder.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{1FA130F5-283F-4362-8C80-1E494097FA8E}"
+          DTS:EvalOp="3"
+          DTS:Expression="@LoadStatusFlg==0"
+          DTS:From="Package\Foreach Loop Container_Read Files From Input Folder\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container_Read Files From Input Folder.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{147CD007-08EB-4052-8DDB-E45400767298}"
+          DTS:EvalOp="3"
+          DTS:Expression="@LoadStatusFlg==1"
+          DTS:From="Package\Foreach Loop Container_Read Files From Input Folder\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container_Read Files From Input Folder\Rejected Folder" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container_Read Files From Input Folder.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{F1E5B8EF-3575-49EC-B9B2-2F54EF87B9FE}"
+          DTS:From="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Loop Container_Read Files From Input Folder\ArchFile" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container_Read Files From Input Folder.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{EB6261BF-246E-4D29-8423-41F614BB9307}"
+          DTS:From="Package\Foreach Loop Container_Read Files From Input Folder\ArchFile"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Foreach Loop Container_Read Files From Input Folder\ESQL_Insert file Name" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{F6DF2B75-BED2-4890-96C2-954CCC5BE8A8}"
+          DTS:ObjectName="{F6DF2B75-BED2-4890-96C2-954CCC5BE8A8}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Foreach Loop Container_Read Files From Input Folder\Execute SQL Task"
+          TopLeft="105,22" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File"
+          TopLeft="11,98" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container_Read Files From Input Folder.PrecedenceConstraints[Constraint]"
+          TopLeft="163,64">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-63.5,34"
+              Start="0,0"
+              End="-63.5,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.79020979020979" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.79020979020979"
+                    Point2="0,13.7902097902098"
+                    Point3="-4,13.7902097902098" />
+                  <mssgle:LineSegment
+                    End="-59.5,13.7902097902098" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-59.5,13.7902097902098"
+                    Point2="-63.5,13.7902097902098"
+                    Point3="-63.5,17.7902097902098" />
+                  <mssgle:LineSegment
+                    End="-63.5,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-39.75,18.7902097902098,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Foreach Loop Container_Read Files From Input Folder\Rejected Folder"
+          TopLeft="217,96" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container_Read Files From Input Folder.PrecedenceConstraints[Constraint 1]"
+          TopLeft="217,64">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78.5,32"
+              Start="0,0"
+              End="78.5,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.97902097902098" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.97902097902098"
+                    Point2="0,12.979020979021"
+                    Point3="4,12.979020979021" />
+                  <mssgle:LineSegment
+                    End="74.5,12.979020979021" />
+                  <mssgle:CubicBezierSegment
+                    Point1="74.5,12.979020979021"
+                    Point2="78.5,12.979020979021"
+                    Point3="78.5,16.979020979021" />
+                  <mssgle:LineSegment
+                    End="78.5,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="31.25,17.979020979021,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Foreach Loop Container_Read Files From Input Folder\ArchFile"
+          TopLeft="42,175" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container_Read Files From Input Folder.PrecedenceConstraints[Constraint 2]"
+          TopLeft="100.5,140">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Foreach Loop Container_Read Files From Input Folder\ESQL_Insert file Name"
+          TopLeft="9,248" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container_Read Files From Input Folder.PrecedenceConstraints[Constraint 3]"
+          TopLeft="103,217">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="400,343"
+          Size="400,386"
+          Id="Package\Foreach Loop Container_Read Files From Input Folder"
+          TopLeft="274,89" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\Flat File Source"
+          TopLeft="188,155" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination"
+          TopLeft="184,216" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File.Paths[Flat File Source Output]"
+          TopLeft="188,176">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-4,61"
+              Start="0,0"
+              End="-11.5,61">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-22.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,0"
+                    Point2="-26.5,0"
+                    Point3="-26.5,4" />
+                  <mssgle:LineSegment
+                    End="-26.5,57" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-26.5,57"
+                    Point2="-26.5,61"
+                    Point3="-22.5,61" />
+                  <mssgle:LineSegment
+                    End="-11.5,61" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container_Read Files From Input Folder\DFT_Load New File\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
